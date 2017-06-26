@@ -1,4 +1,5 @@
 from case import Case
+from refs import *
 
 example = [
     [8, 6, 2, 0, 4, 1, 0, 0, 0],
@@ -12,27 +13,7 @@ example = [
     [5, 0, 0, 0, 1, 2, 7, 0, 4]
 ]
 
-def textInput(text):
-    g = []
-    for x in range(9):
-        l = text.readline()
-        line = []
-        y = -1
-        for char in l:
-            y += 1
-            if char != "\n":
-                line.append(Case(x, y, int(char)))
-        g.append(line)
-    return g
 
-def setGrid(setup, target):
-    """Transforms an empty grid into 
-    an example or a user entry"""
-
-    for line in range(9):
-        for case in range(9):
-            value = setup[line][case]
-            target[line][case].val = value
 
 # setting up the grid
 
@@ -42,22 +23,6 @@ for l in range(9):
     for case in range(9):
         line.append(Case(l, case, 0))
     grid.append(line)
-
-def printGrid(grid):
-    """function to print out the grid"""
-    res = ""
-    #iterating through and finding every 3 case in each direction
-    for b_line in range(3):
-        res+="\n"
-        for line in range(3):
-            res+="\n"
-            for col in range(3):
-                res+="  "
-                for case in range(3):
-                    value = grid[3*b_line+line][3*col+case]
-                    res += str(value.val) + " "
-    print(res, "\n")
-    return res
 
 def iterate(grid):
     """Tries to find every case where the number
@@ -110,9 +75,8 @@ input_sudoku = open("sudoku.txt", "r", encoding="utf-8")
 grid = textInput(input_sudoku)
 finished = iterate(grid)[0]
 printGrid(grid)
+
 i = 0
-
-
 while (not finished) and (i < 1000):
     
     finished, grid = iterate(grid)
