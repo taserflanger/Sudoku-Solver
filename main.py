@@ -106,7 +106,7 @@ def iterate(grid):
                     printGrid(grid)
     return (finished, grid[:])
 
-input_sudoku = open("sudoku2.txt", "r", encoding="utf-8")
+input_sudoku = open("sudoku.txt", "r", encoding="utf-8")
 grid = textInput(input_sudoku)
 finished = iterate(grid)[0]
 printGrid(grid)
