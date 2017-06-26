@@ -1,3 +1,3 @@
 # Sudoku Solver
 
-Written in python
+Written in python 3
