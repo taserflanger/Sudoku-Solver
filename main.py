@@ -25,19 +25,10 @@ for l in range(9):
 
 input_sudoku = open("sudoku.txt", "r", encoding="utf-8")
 grid = textInput(input_sudoku)
+# setGrid(example, grid)
 board = Board(grid)
-finished = board.iterate()[0]
 printGrid(grid)
 
-i = 0
-while (not finished) and (i < 1000):
-    
-    finished, grid = board.iterate()
-    if finished:
-        pass
-    
-    i += 1
-    printGrid(grid)
-    if (not finished) and (i >= 999):
-        print("Unsolvable for this programm")
+board.solve()
+
 input("End the progrmam")
