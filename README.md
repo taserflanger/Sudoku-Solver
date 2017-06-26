@@ -1,3 +1,3 @@
-# hello-world
-&lt;3
-how does this work? why?
+# Sudoku Solver
+
+Written in python
